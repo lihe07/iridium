@@ -5,7 +5,6 @@ specifiers:
   '@iconify-json/fluent': ^1.1.17
   '@mdx-js/rollup': ^2.1.5
   '@solidjs/router': ^0.5.1
-  '@unocss/preset-icons': ^0.46.5
   eslint: ^8.28.0
   eslint-config-standard: ^17.0.0
   eslint-plugin-import: ^2.26.0
@@ -34,7 +33,6 @@ devDependencies:
   '@aminya/minijson': 0.6.2
   '@iconify-json/fluent': registry.npmmirror.com/@iconify-json/fluent/1.1.17
   '@mdx-js/rollup': 2.1.5_rollup@3.4.0
-  '@unocss/preset-icons': registry.npmmirror.com/@unocss/preset-icons/0.46.5
   eslint: 8.28.0
   eslint-config-standard: 17.0.0_5dakk4wnrkkieagghiqvu5yn4y
   eslint-plugin-import: 2.26.0_eslint@8.28.0
