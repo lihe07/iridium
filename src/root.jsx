@@ -5,6 +5,7 @@ import {
   FileRoutes,
   Head,
   Html,
+  Link,
   Meta,
   Routes,
   Scripts,
@@ -12,6 +13,7 @@ import {
 } from 'solid-start'
 import 'uno.css'
 import Header from './components/Header'
+import logo from './assets/images/logo.svg'
 
 export default function Root () {
   return (
@@ -22,6 +24,7 @@ export default function Root () {
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta name="description" content="Project Iridium" />
         <Meta name="keywords" content="solid, solidjs, solid-start" />
+        <Link rel="icon" href={logo} />
       </Head>
       <Body class="m0">
         <Header />
