@@ -1,7 +1,7 @@
 import logo from '../assets/images/logo.svg'
-import { Link, useLocation } from '@solidjs/router'
+import { useLocation } from '@solidjs/router'
 
-import { createEffect, createSignal, onMount, Show } from 'solid-js'
+import { createEffect, createSignal, onMount } from 'solid-js'
 
 function getThemeSetting () {
   if (window.localStorage.getItem('theme')) {
@@ -24,7 +24,7 @@ export default () => {
   onMount(() => {
     setTimeout(() => {
       setShow(true)
-    }, 0)
+    }, 900)
   })
 
   createEffect(() => {
