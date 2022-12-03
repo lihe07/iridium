@@ -1,11 +1,13 @@
 import logo from '../assets/images/logo.svg'
 import { Link, useLocation } from '@solidjs/router'
 
-import { createEffect, createSignal, onMount } from 'solid-js'
+import { createEffect, createSignal, onMount, Show } from 'solid-js'
 
 function getThemeSetting () {
-  return window.localStorage.getItem('theme') ||
-    window.matchMedia('(prefers-color-scheme: dark)').matches
+  if (window.localStorage.getItem('theme')) {
+    return window.localStorage.getItem('theme')
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'
     : 'light'
 }
@@ -17,11 +19,7 @@ export default () => {
   const [dark, setDark] = createSignal(false)
 
   if (typeof window !== 'undefined') {
-    const setting = getThemeSetting() === 'dark'
-    document.body.classList.toggle('dark', setting)
-    document.body.classList.toggle('light', !setting)
-    window.localStorage.setItem('theme', setting ? 'dark' : 'light')
-    setDark(setting)
+    setDark(getThemeSetting() === 'dark')
   }
   onMount(() => {
     setTimeout(() => {

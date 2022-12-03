@@ -18,7 +18,7 @@ export default () => {
     console.log('data loaded', data())
   })
   return (
-    <div class="pt-20 min-h-[calc(100vh-5rem)] dark:bg-#0d1117 transition-all">
+    <div class="pt-13 min-h-[calc(100vh-3.25rem)] dark:bg-#0d1117 transition-all">
       <Show when={data()}>
         <Article data={data()} />
       </Show>

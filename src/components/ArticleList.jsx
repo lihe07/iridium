@@ -12,7 +12,7 @@ const Block = (props) => {
   const cover = () => dummyCover
   return (
     <div
-      class="transition rounded-7 w-full h-50 m-b-5 cursor-pointer bg-cover bg-center op-80 hover:op-100 active:scale-98"
+      class="transition rounded-7 w-full h-50 m-b-5 cursor-pointer bg-cover bg-center op-80 hover:op-100 active:scale-98 overflow-hidden"
       classList={{ '!op-100 !active:scale-100': props.selected }}
       onClick={() => props.onSelect()}
       style={{
@@ -40,7 +40,9 @@ export default (props) => {
         }}
       >
         <div class="bg-dark bg-op-30 w-full h-full flex items-end">
-          <h1 class="color-white ml-5 text-9 tracking-wide">新闻列表</h1>
+          <h1 class="color-white ml-5 text-9 tracking-wide font-sans">
+            新闻列表
+          </h1>
         </div>
       </div>
 
