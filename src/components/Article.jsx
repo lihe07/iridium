@@ -11,7 +11,18 @@ const Top = (props) => {
       }}
     >
       <div class="flex items-center justify-start px-3 w-full box-border h-full bg-black bg-op-40">
-        <div class="cursor-pointer" onClick={() => window.history.go(-1)}>
+        <div
+          class="cursor-pointer"
+          onClick={() => {
+            // If has history, go back
+            if (props.history.length > 1) {
+              window.history.go(-1)
+            } else {
+              // Otherwise, go to news page
+              window.location.href = '/news'
+            }
+          }}
+        >
           <svg
             class="w-12 h-12"
             xmlns="http://www.w3.org/2000/svg"
