@@ -1,10 +1,15 @@
-import style from './Article.module.css'
+import './Article.light.css'
 
 export default (props) => {
   return (
     <div class="m-10">
-      <h1>{props.data.title.rendered}</h1>
-      <article class={style.article} innerHTML={props.data.content.rendered} />
+      <article
+        class="article"
+        // eslint-disable-next-line solid/no-innerhtml
+        innerHTML={
+          `<h1>${props.data.title.rendered}</h1>` + props.data.content.rendered
+        }
+      />
     </div>
   )
 }

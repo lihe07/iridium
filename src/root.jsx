@@ -26,7 +26,7 @@ export default function Root () {
         <Meta name="keywords" content="solid, solidjs, solid-start" />
         <Link rel="icon" href={logo} />
       </Head>
-      <Body class="m0">
+      <Body class="m0 light">
         <Header />
         <Suspense>
           <Routes>

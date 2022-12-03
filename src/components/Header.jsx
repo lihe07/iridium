@@ -23,7 +23,12 @@ export default () => {
       </Link>
 
       <div class="mr-10">
-        <Link href="/news">新闻</Link>
+        <Link
+          href="/news"
+          class="color-black decoration-none transition op-70 hover:op-100"
+        >
+          新闻
+        </Link>
         <div />
       </div>
     </header>
