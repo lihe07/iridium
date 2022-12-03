@@ -40,7 +40,7 @@ const blocks = [
 
 export default () => {
   return (
-    <section class="overflow-hidden md:h-0 w-full h-max transition-all-300">
+    <section class="overflow-hidden md:h-0 w-full h-max transition-all-300 font-sans">
       <div class="h-max mx-5">
         <For each={blocks}>{(block) => <Block {...block} />}</For>
       </div>

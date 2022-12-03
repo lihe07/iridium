@@ -1,5 +1,4 @@
 import { For } from 'solid-js'
-import { useNavigate } from 'solid-start'
 
 import dummyCover from '../assets/images/background.webp'
 import header from '../assets/images/listBackground.webp'
@@ -29,7 +28,6 @@ const Block = (props) => {
 }
 
 export default (props) => {
-  const navigate = useNavigate()
   return (
     <div class="w-full">
       {/* Header */}
@@ -57,8 +55,8 @@ export default (props) => {
                 // If Mobile: goto /news/:id
                 // If Desktop: props.onSelect(index)
                 if (window.innerWidth < 768) {
-                  // window.location.href = `/news/${item.id}`
-                  navigate(`/news/${item.id}`)
+                  window.location.href = `/news/${item.id}`
+                  // navigate(`/news/${item.id}`)
                 } else {
                   props.onSelect(index())
                 }
