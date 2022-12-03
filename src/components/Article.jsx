@@ -15,7 +15,7 @@ const Top = (props) => {
           class="cursor-pointer"
           onClick={() => {
             // If has history, go back
-            if (props.history.length > 1) {
+            if (window.history.length > 1) {
               window.history.go(-1)
             } else {
               // Otherwise, go to news page
