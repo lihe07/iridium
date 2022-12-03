@@ -1,16 +1,38 @@
 import logo from '../assets/images/logo.svg'
 import { Link, useLocation } from '@solidjs/router'
 
-import { createSignal, onMount } from 'solid-js'
+import { createEffect, createSignal, onMount } from 'solid-js'
+
+function getThemeSetting () {
+  return window.localStorage.getItem('theme') ||
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
+}
 
 export default () => {
   const location = useLocation()
   const [show, setShow] = createSignal(location.pathname !== '/')
 
+  const [dark, setDark] = createSignal(false)
+
+  if (typeof window !== 'undefined') {
+    const setting = getThemeSetting() === 'dark'
+    document.body.classList.toggle('dark', setting)
+    document.body.classList.toggle('light', !setting)
+    window.localStorage.setItem('theme', setting ? 'dark' : 'light')
+    setDark(setting)
+  }
   onMount(() => {
     setTimeout(() => {
       setShow(true)
-    }, 900)
+    }, 0)
+  })
+
+  createEffect(() => {
+    document.body.classList.toggle('dark', dark())
+    document.body.classList.toggle('light', !dark())
+    window.localStorage.setItem('theme', dark() ? 'dark' : 'light')
   })
   return (
     <header
@@ -22,14 +44,30 @@ export default () => {
         <span class="color-black">Project Iridium</span>
       </Link>
 
-      <div class="mr-10">
+      <div class="mr-10 flex items-center">
         <Link
           href="/news"
           class="color-black decoration-none transition op-70 hover:op-100"
         >
           新闻
         </Link>
-        <div />
+        <div class="ml-3 relative w-5 h-5" onClick={() => setDark(!dark())}>
+          <div
+            class="absolute top-0 w-5 h-5 i-fluent-weather-moon-16-filled cursor-pointer"
+            classList={{
+              'op-100': !dark(),
+              'op-0': dark()
+            }}
+          />
+          <div
+            class="absolute top-0 w-5 h-5 i-fluent-weather-sunny-16-filled cursor-pointer"
+            classList={{
+              'op-100': dark(),
+              'op-0': !dark()
+            }}
+          />
+          {/* Day Night */}
+        </div>
       </div>
     </header>
   )

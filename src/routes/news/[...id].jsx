@@ -1,5 +1,6 @@
-import { createEffect, createResource } from 'solid-js'
+import { createEffect, createResource, Show } from 'solid-js'
 import { useRouteData } from 'solid-start'
+import Article from '../../components/Article'
 
 const api = 'https://www.notkiller.moe/wp-json/wp/v2/posts/'
 
@@ -17,11 +18,10 @@ export default () => {
     console.log('data loaded', data())
   })
   return (
-    <div class="mt-20">
-      <p>Todo: Style</p>
-      <h1>{data()?.title?.rendered}</h1>
-      {/* eslint-disable-next-line solid/no-innerhtml */}
-      <div innerHTML={data()?.content?.rendered} />
+    <div class="pt-20 min-h-[calc(100vh-5rem)] dark:bg-#0d1117 transition-all">
+      <Show when={data()}>
+        <Article data={data()} />
+      </Show>
     </div>
   )
 }
